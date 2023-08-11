@@ -1,0 +1,57 @@
+﻿@model Tuple<List<ScoreCardModel>,List<PlayerModel>>
+
+@{
+    ViewData["Title"] = "Score card";
+}
+
+
+
+
+
+<div class="row">
+
+
+
+    <div class="col-lg-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Player
+                    </th>
+                    <th>
+                        Run
+                    </th>
+                    <th>
+                        Wicket
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Item1)
+                {
+                    @foreach (var items in Model.Item2)
+                    {
+                        <tr>
+
+                            <td>
+                                @item.Player.Name
+                            </td>
+                            <td>
+                                @item.Run
+                            </td>
+                            <td>
+                                @item.Wicket
+                            </td>
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+

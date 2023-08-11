@@ -1,0 +1,70 @@
+﻿@model LiveScore.Models.PlayerModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+@*<h1>Delete</h1>*@
+<div class="col-10">
+    <img src="~/images/avatar.jpg" width="50" height="50" class="d-inline-block align-top rounded-circle" alt="Image.."> <font size="6" color="#003399"><b> &nbsp Delete Player </b></font>
+    
+</div>
+<br /><br />
+<h3>Are you sure you want to delete this?</h3>
+<br /><br />
+<div>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            Player Image
+        </dt>
+        <dd class="col-sm-10">
+            <div class="form-group">
+                @if (string.IsNullOrEmpty(@Model.FileName))
+                {
+                    <img class="card-img-top" src="/images/avatar.jpg" alt="Card image cap" style="width : 250px;" height="200">
+                }
+                else
+                {
+                    <img class="card-img-top" src="/uploads/@Model.FileName" alt="Card image cap" style="width : 250px" height="200">
+                }
+            </div>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsBatsman)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsBatsman)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BattingStyle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BattingStyle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BowlingStyle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BowlingStyle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Team)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Team.Name)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

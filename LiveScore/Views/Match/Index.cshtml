@@ -1,0 +1,95 @@
+﻿@model IEnumerable<LiveScore.Models.MatchModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamOne)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamTwo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WinnerTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoosingTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstTeamTotalRun)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstTeamTotalWicket)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondTeamTotalRun)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondTeamTotalWicket)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderByDescending(a => a.Date))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamOne.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamTwo.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WinnerTeam.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoosingTeam.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstTeamTotalRun)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstTeamTotalWicket)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondTeamTotalRun)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondTeamTotalWicket)
+                </td>
+                <td>
+                    @if (item.LoosingTeamId == null)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    }
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>  |       
+                    <a asp-action="Index" asp-controller="Scorecard" asp-route-matchId="@item.Id">Add score</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

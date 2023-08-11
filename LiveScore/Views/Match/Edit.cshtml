@@ -1,0 +1,64 @@
+﻿@model LiveScore.Models.MatchModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>MatchModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="hidden" asp-for="TeamOneId" />
+                <input type="hidden" asp-for="TeamTwoId" />
+                <input type="hidden" asp-for="Date" />
+            </div>
+            <div class="form-group">
+                <label asp-for="WinnerTeamId" class="control-label">Winner </label>
+                <select asp-for="WinnerTeamId" class="form-control" asp-items="ViewBag.WinnerTeamId"></select>
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="LoosingTeamId" class="control-label">Looser</label>
+                <select asp-for="LoosingTeamId" class="form-control" asp-items="ViewBag.LoosingTeamId"></select>
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstTeamTotalRun" class="control-label">First Team total run</label>
+                <input asp-for="FirstTeamTotalRun" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstTeamTotalWicket" class="control-label">First Team total wicket</label>
+                <input asp-for="FirstTeamTotalWicket" class="form-control" />
+              
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondTeamTotalRun" class="control-label">Second Team total run</label>
+                <input asp-for="SecondTeamTotalRun" class="form-control" />
+             
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondTeamTotalWicket" class="control-label">First Team total wicket</label>
+                <input asp-for="SecondTeamTotalWicket" class="form-control" />
+               
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

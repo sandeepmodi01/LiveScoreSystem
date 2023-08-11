@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LiveScore.Models.TeamModel>
+
+@{
+    ViewData["Title"] = "Team View";
+}
+<link rel="stylesheet" href="~/css/Image3D.css" />
+<!-- Image and text -->
+<div class="col-10">
+    <img src="~/images/Dummy Flag.jpg" width="50" height="50" class="d-inline-block align-top rounded-circle" alt="Flag"> <font size="6"> &nbsp Team View Panel</font>
+</div>
+
+
+<br /><br />
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<div class="row">
+    @foreach (var item in Model) 
+    {
+        <div class="col-lg-3">
+            <div class="card" style="width: 16rem;">
+                <div class="img3d">
+                @if (string.IsNullOrEmpty(item.FileName))
+                {
+                    <img class="card-img-top" src="/images/Dummy Flag.jpg" alt="Card image cap" style="top : inherit" height="250" >
+                }
+                else
+                {
+                    <img class="card-img-top" src="/uploads/@item.FileName" alt="Card image cap" style="top : inherit" height="250">
+                }
+                </div>
+                <div class="card-body" style="background-color:honeydew;">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">Coach Name : @item.CoachName</p>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>   
+

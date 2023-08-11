@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap&family=Roboto:ital,wght@0,500;0,900;1,500&display=swap");
+
+/* Navbar */
+
+/*This Peice of code is for background color */
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: "Asap", sans-serif;
+  background: #222;
+}
+
+/*This Peice of code is for black dot on nav bar */
+ul{
+  list-style: none;
+}
+
+/*This Peice of code is for Underline the Menu and name of website */
+a{
+  text-decoration: none;
+}
+
+
+
+/*Navigation*/
+/*This Peice of code is for Nav Bar Decoration */
+nav{
+  top: 0;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  background: #222;
+  box-shadow: 0px 1px 2px rgba(0,255,255,0.5), 
+              0px 2px 4px rgba(0,255,255,0.5), 
+              0px 4px 8px rgba(0,255,255,0.5), 
+              0px 8px 16px rgba(0,255,255,0.5);
+}
+
+/*This Peice of code is for Website Name Decoration */
+/*.logo a{
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  color: #fff;
+  font-size: 2rem;
+}*/
+
+/*This Peice of code kept the nav bar horazontally */
+/*.menu{
+  display: flex;
+}*/
+
+/*This Peice of code is for menu bar decoration */
+/*.menu a{
+  height: 40px;
+  margin: 10px;
+  line-height: 43px;
+  padding: 0 40px;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 5px;
+}*/
+
+/*This Peice of code is for nav bar hover */
+.menu a:hover{
+  color: #fff;
+  background-color: #333;
+  box-shadow: inset 0px 2px 4px rgba(0,255,255,0.3), 
+              inset 0px 4px 8px rgba(0,255,255,0.3), 
+              inset 0px 8px 16px rgba(0,255,255,0.3);
+  transition: 0.2s;
+  transform: translateY(2px);
+}
+
+
+/*Completed & Live & Upcomming*/
+#services{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.title h2{
+  color: #fff;
+  position:initial;
+  text-transform: uppercase;
+  font-size: 3rem;
+  margin-bottom: initial;
+}
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0px 0px;
+}
+.content h2{
+  color: #fff;
+}
+.service-box {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;       /*Adjust Text place in the service box verticially*/             
+  align-items: center;           /*Adjust Text place in the service box Horizontally*/
+  flex-direction: column;
+  padding: 20px;                     /*increase service box size*/
+  margin: 120px;                     /*adjust gap between box*/
+  box-shadow: 0px 1px 2px rgba(0,255,255,0.5), 
+              0px 2px 4px rgba(0,255,255,0.5), 
+              0px 4px 8px rgba(0,255,255,0.5), 
+              0px 8px 16px rgba(0,255,255,0.5);
+  background-color: #222;
+}
+.service-box:hover{
+  box-shadow: 0px 2px 4px rgba(0,255,255,0.7), 
+              0px 4px 8px rgba(0,255,255,0.7), 
+              0px 8px 16px rgba(0,255,255,0.7), 
+              0px 12px 24px rgba(0,255,255,0.7);
+  transform: translateY(-10px);
+  transition: 0.2s;
+}
+.service-box p {
+  text-align: center;
+  width: 230px;
+  margin: 0px 0px 5px 0px;
+  color: #fff;
+}
+
+
+
+
+/*Contact*/
+
+body{
+  background:darkslategrey;
+}
+p1{
+  font-size: 30px;
+  font-style:italic;
+}
+h2{
+  
+  color:rgb(21, 22, 37) ;
+  font-size: 50px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 40px 0px;
+}
+.form{
+  width: 100%;
+  max-width: 700px;
+  margin-top: 20px;
+}
+.row{
+  width: 50%;
+  display: flex;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+.row2{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.row input, .row2 textarea{
+  width: 50%;
+  padding: 20px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #0f0f0f;
+  font-size: 15px;
+  box-shadow: 0px 1px 2px rgba(0,255,255,0.5), 
+              0px 2px 4px rgba(0,255,255,0.5), 
+              0px 4px 8px rgba(0,255,255,0.5), 
+              0px 8px 16px rgba(0,255,255,0.5);
+  border-radius: 5px;
+  font-family: 'Asap';
+}
+.row2 textarea{
+  resize: none;
+  height: 200px;
+}
+.row2 input[type='submit']{
+  height: 40px;
+  margin: 10px;
+  width: 150px;
+  line-height: 43px;
+  padding: 0 40px;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #000;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Asap';
+}
+.row2 input[type='submit']:hover{
+  color: #fff;
+  background-color: #222;
+  box-shadow: inset 0px 2px 4px rgba(0,255,255,0.3), 
+              inset 0px 4px 8px rgba(0,255,255,0.3), 
+              inset 0px 8px 16px rgba(0,255,255,0.3);
+  transition: 0.2s;
+  transform: translateY(2px);
+}
+
+
+
+/* Social Sites */
+
+div.centered{
+   text-align: center;
+}
+div.centered a
+{
+   padding: 12px;   
+   font-size: 20px;
+   color: white;
+   display: inline-block;
+}
+div.centered a:hover{
+   opacity: 0.5;
+}
+

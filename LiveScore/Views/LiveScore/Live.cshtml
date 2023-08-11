@@ -1,0 +1,52 @@
+﻿@model IList<MatchModel>
+
+@{
+    ViewData["Title"] = "Live";
+}
+
+<div align="center" style="margin : 50px">
+    <a class="btn btn-primary" style="margin-top : 10px; margin-left : 20px ; margin-bottom : 5px;" asp-area="" asp-controller="LiveScore" asp-action="Upcoming"> Upcoming </a>
+    <a class="btn btn-primary" style="margin-top : 10px; margin-left : 20px ; margin-bottom : 5px;" asp-area="" asp-controller="LiveScore" asp-action="Completed"> Completed </a>
+</div>
+
+<div class="row">
+    <dl class="col-sm-10" style="background-color : lightcyan">
+        <dd class="form-row" style="align-items : center ; font-style:oblique ; background-color : lightcyan">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Team One
+                        </th>
+                        <th>
+                            Team Two
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderByDescending(a => a.Date))
+                    {
+                         <tr>
+                            <td>
+                                @item.Date
+                            </td>
+                            <td>
+                                @item.TeamOne.Name
+                            </td>
+                            <td>
+                                @item.TeamTwo.Name
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+
+
+

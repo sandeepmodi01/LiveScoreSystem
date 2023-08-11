@@ -1,0 +1,56 @@
+﻿@model LiveScore.Models.TeamModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@*<h1>Details</h1>
+
+<div>
+    <h4>TeamModel</h4>
+    <hr />*@
+<link rel="stylesheet" href="~/css/Image3D.css" />
+<!-- Image and text -->
+<div class="col-10">
+    <img src="~/images/Dummy Flag.jpg" width="50" height="50" class="d-inline-block align-top rounded-circle" alt=""> <font size="6"> &nbsp Team Details</font>
+</div>
+
+<br /><br />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+
+        <dd class="col-sm-10">
+            <div class="card" style="width: 16rem;">
+                <div class="img23d" >
+                @if (string.IsNullOrEmpty(@Model.FileName))
+                {
+                    <img class="card-img-top" src="/images/Dummy Flag.jpg" alt="Card image cap" style="width : 250px;" height="250">
+                }
+                else
+                {
+                    <img class="card-img-top" src="/uploads/@Model.FileName" alt="Card image cap" style="width : 250px" height="250">
+                }
+                </div>
+            </div>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CoachName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CoachName)
+        </dd>
+    </dl>
+
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

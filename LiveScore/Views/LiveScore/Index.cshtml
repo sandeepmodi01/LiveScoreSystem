@@ -1,0 +1,84 @@
+﻿@model IList<MatchModel>
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="~/images/296-2966109_cricket-stadium-night-hd.jpg" class="d-block w-100" alt="..." style="height : 700px">
+    </div>
+    <div class="carousel-item">
+      <img src="~/images/match_eng_vs_ind_2021_england_1628051714.jpg" class="d-block w-100" alt="..." style="height : 700px">
+    </div>
+    <div class="carousel-item">
+      <img src="~/images/wp1862751.jpg" class="d-block w-100" alt="..." style="height : 700px">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<br />
+<br />
+<br />
+
+
+@foreach (var item in Model)
+{
+    @if (item.Date > DateTime.Today)
+    {
+        <div class="row" style="border :outset ; background-color : #c9ffe5">
+            <div class="card, row" style=" width : 100%">
+                <div class="col-lg">
+                    <div class="card" style="margin-left : 100px ; margin-top : 20px ; align-items :center ; width :200px">
+                        @if (string.IsNullOrEmpty(item.TeamOne.FileName))
+                        {
+                            <img class="card-img" src="/images/avatar.jpg" alt="Card image cap" height="100" style="width :100px">
+                        }
+                        else
+                        {
+                            <img class="card-img" src="/uploads/@item.TeamOne.FileName" alt="Card image cap" height="100" style="width :100px">
+                        }
+                        <div>
+                            <h3 class="card-title">@item.TeamOne.Name</h3>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="col-lg" style=" align-content : center ; margin-top : 70px ; margin-right : 90px">
+                    <h3 style="margin-left : 160px">vs</h3>
+                    <p style="margin-left : 100px">@item.Date</p>
+                </div>
+                <div class="col-lg">
+                    <div class="card" style="margin-top : 20px ; margin-right : 20px ;  align-items :center ; width :200px ">
+                        @if (string.IsNullOrEmpty(item.TeamTwo.FileName))
+                        {
+                            <img class="card-img-top" src="/images/avatar.jpg" alt="Card image cap" height="100" style="width :100px">
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="/uploads/@item.TeamTwo.FileName" alt="Card image cap" height="100" style="width :100px">
+                        }
+                        <div>
+                            <h3 class="card-title">@item.TeamTwo.Name</h3>
+
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    }
+}
+

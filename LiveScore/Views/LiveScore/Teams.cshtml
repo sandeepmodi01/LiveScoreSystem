@@ -1,0 +1,37 @@
+﻿@model IList<TeamModel>
+
+
+<link rel="stylesheet" href="~/css/Image3D.css" />
+<!-- Image and text -->
+<div class="col-10">
+    <img src="~/images/Dummy Flag.jpg" width="50" height="50" class="d-inline-block align-top rounded-circle" alt=""> <font size="6"> &nbsp Teams</font>
+</div>
+<br />
+<br />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <dl class="col-sm-6" style="background-color : lightcyan">
+            <dd class="form-row" style="align-items : center ; font-style:oblique ; background-color : lightcyan">
+                @if (string.IsNullOrEmpty(item.FileName))
+                {
+                    <div class="img3d">
+                        <img class="card-img-top" src="/images/Dummy Flag.jpg" alt="Card image cap" style="width : 150px; margin :8px" height="150">
+                    </div>
+                }
+                else
+                {
+                    <div class="img3d">
+                        <img class="card-img-top" src="/uploads/@item.FileName" alt="Card image cap" style="width : 150px ; margin : 8px; margin-right : 15px" height="150">
+                    </div>
+                }
+                <font face="Lucidia Calligraphy" size="5" color="blue">
+                    &nbsp;                    
+                     @item.Name<br />
+                     <p><font color="darkblue">Coach Name :</font> @item.CoachName</p>
+                </font>
+
+            </dd>
+        </dl>
+    }  
+</div>

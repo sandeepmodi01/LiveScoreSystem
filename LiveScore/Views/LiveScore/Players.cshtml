@@ -1,0 +1,47 @@
+﻿@model Tuple<List<TeamModel>,List<PlayerModel>>
+@{
+    ViewData["Title"] = "Players";
+}
+<link rel="stylesheet" href="~/css/Image3D.css" />
+<div class="col-10">
+    <img src="~/images/avatar.jpg" width="50" height="50" class="d-inline-block align-top rounded-circle" alt=""> <font size="6"> &nbsp Players</font>
+</div>
+<br />
+<br />
+<div class="row">
+
+    @foreach (var item in Model.Item2)  
+    {
+        @foreach (var items in Model.Item1)
+        { 
+            @if (int.Equals(item.TeamId, items.Id))
+            {
+                <div class="col-lg-3">
+                    <div id="img" class="card" style="width: 16rem; background-color : lightskyblue ; width : 270px">
+                        <div class="img3d">
+                            @if (string.IsNullOrEmpty(item.FileName))
+                            {
+                                <img class="card-img-top" src="/images/avatar.jpg" alt="Card image cap" height="260">
+                            }
+                            else
+                            {
+                                <img class="card-img-top" src="/uploads/@item.FileName" alt="Card image cap" height="260">
+                            }
+                        </div>
+                        <div class="card-body" style="background-color:lightcyan; font-style :italic; width : 270px;">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text"><b> Team : @items.Name</b></p>
+                            <p class="card-text"><b> Coach Name : @items.CoachName</b></p>
+                            <p class="card-text"><b> IsBatsman : @item.IsBatsman</b></p>
+                            <p class="card-text"><b> Batting Style : @item.BattingStyle</b></p>
+                            <p class="card-text"><b> Bowling Style : @item.BowlingStyle</b></p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        }
+    }
+</div>
+
+

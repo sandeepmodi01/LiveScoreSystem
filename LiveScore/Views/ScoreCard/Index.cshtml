@@ -1,0 +1,107 @@
+﻿@model IList<LiveScore.Models.ScoreCardModel>
+
+@{
+    ViewData["Title"] = "Score card";
+}
+
+@{
+    var score = Model.GroupBy(a => a.Player.TeamId).Select(a => new
+    {
+        team = a.FirstOrDefault().Player.Team,
+        scorecard = a.ToList()
+    }).ToList();
+}
+<h1>Score Card</h1>
+<hr />
+<p>
+    <a asp-action="Create" asp-route-matchId="@ViewBag.MatchId">Create New</a>
+</p>
+@if (Model != null && Model.Count > 0)
+{
+    <div class="row">
+        @if(score.Count > 0)
+        {
+            
+        <div class="col-lg-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                          Player
+                        </th>
+                        <th>
+                           Run
+                        </th>
+                        <th>
+                          Wicket
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in score[0].scorecard)
+                    {
+                            <tr>
+
+                                <td>
+                                @item.Player.Name
+                                </td>
+                                <td>
+                                @item.Run
+                                </td>
+                                <td>
+                                @item.Wicket
+                                </td>
+                                <td>
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        }
+        
+        @if (score.Count > 1)
+        {
+            <div class="col-lg-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Player
+                            </th>
+                            <th>
+                                Run
+                            </th>
+                            <th>
+                                Wicket
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in score[1].scorecard)
+                        {
+                            <tr>
+
+                                 <td>
+                                @item.Player.Name
+                                </td>
+                                <td>
+                                @item.Run
+                                </td>
+                                <td>
+                                @item.Wicket
+                                </td>
+                                <td>
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        }
+    </div>
+}

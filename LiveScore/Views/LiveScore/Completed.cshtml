@@ -1,0 +1,94 @@
+﻿@model IList<MatchModel>
+
+@{
+    ViewData["Title"] = "Completed";
+}
+
+<div align="center" style="margin : 50px">
+
+  <a class="btn btn-primary" style="margin-top : 10px; margin-left : 20px ; margin-bottom : 5px;" asp-area="" asp-controller="LiveScore" asp-action="Upcoming"> Upcoming </a>
+  <a class="btn btn-primary" style="margin-top : 10px; margin-left : 20px ; margin-bottom : 5px;" asp-area="" asp-controller="LiveScore" asp-action="Completed"> Completed </a>
+</div>
+
+<div class="row">
+    <dl class="col-sm-12" style="background-color : lightcyan">
+        <dd class="form-row" style="align-items : center ; font-style:oblique ; background-color : lightcyan">
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Team One
+                        </th>
+                        <th>
+                            Team Two
+                        </th>
+                        <th>
+                            Winner Team
+                        </th>
+                        <th>
+                            Losing Team
+                        </th>
+                        <th>
+                            First Team Total Run
+                        </th>
+                        <th>
+                            First Team Total Wicket
+                        </th>
+                        <th>
+                            Second Team Total Run
+                        </th>
+                        <th>
+                            Second Team Total Wicket
+                        </th>                                               
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderBy(a => a.Date))
+                    {
+                        @if (item.Date < DateTime.Now)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Date
+                                </td>
+                                <td>
+                                    @item.TeamOne.Name
+                                </td>
+                                <td>
+                                    @item.TeamTwo.Name
+                                </td>
+                                <td>
+                                    @item.WinnerTeam?.Name
+                                </td>
+                                <td>
+                                    @item.LoosingTeam?.Name
+                                </td>
+                                <td>
+                                    @item.FirstTeamTotalRun
+                                </td>
+                                <td>
+                                    @item.FirstTeamTotalWicket
+                                </td>
+                                <td>
+                                    @item.FirstTeamTotalRun
+                                </td>
+                                <td>
+                                    @item.SecondTeamTotalWicket
+                                </td>    
+                                <td>
+                                    <a asp-action="Index" asp-controller="ScoreCard" asp-route-matchId="@item.Id">View Scorecard</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+
+
+
